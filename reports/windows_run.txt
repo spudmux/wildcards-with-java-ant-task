@@ -1,0 +1,23 @@
+Buildfile: c:\build.xml
+
+compile:
+    [mkdir] Created dir: c:\build\classes
+    [javac] Compiling 1 source file to c:\build\classes
+
+jar:
+      [jar] Building jar: c:\build\Echo.jar
+
+build:
+
+run-passing-file-names:
+     [java] Echoing Arguments:
+     [java] c:\src\EchoArguments.java
+
+run-passing-wildcard:
+     [java] Echoing Arguments:
+     [java] src\EchoArguments.java
+
+run:
+
+BUILD SUCCESSFUL
+Total time: 2 seconds
