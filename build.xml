@@ -1,40 +1,40 @@
 <project name="ant_java_wildcard" default="help" basedir=".">
-   
 
-   
-    <target name="help" description="List all public targets">
-	    <java classname="org.apache.tools.ant.Main">
-	    	<arg value="-projecthelp" />
+
+
+	<target name="help" description="List all public targets">
+		<java classname="org.apache.tools.ant.Main">
+			<arg value="-projecthelp" />
 		</java>
-    </target>
+	</target>
 
 
 
 	<pathconvert property="src.files">
 		<fileset dir="src" includes="**/*.java"/>
 	</pathconvert>
-    
-   
+	
 
-    <target name="run-passing-file-names" description="Run passing files correctly" depends="compile">
-        <java jar="build/Echo.jar" fork="true">
-            <arg path="${src.files}"/> 
-        </java> 
-    </target> 
-    
-  
 
-    <target name="run-passing-wildcard" description="Run passing files incorrectly" depends="compile">
-        <java jar="build/Echo.jar" fork="true">
-            <arg value="src/*.java"/> 
-        </java> 
-    </target>
+	<target name="run-passing-file-names" description="Run passing files correctly" depends="compile">
+		<java jar="build/Echo.jar" fork="true">
+			<arg path="${src.files}"/> 
+		</java> 
+	</target> 
+	
 
-   
 
-	<target name="run" description="run both argument passing tests" depends="build, run-passing-file-names, run-passing-wildcard"/>
+	<target name="run-passing-wildcard" description="Run passing files incorrectly" depends="compile">
+		<java jar="build/Echo.jar" fork="true">
+			<arg value="src/*.java"/> 
+		</java>
+	</target>
 
-   
+
+
+	<target name="run" description="Run both argument passing tests" depends="build, run-passing-file-names, run-passing-wildcard"/>
+
+
 
 	<target name="compile" description="Compile files in src folder">
 		<mkdir dir="build/classes"/>
@@ -43,17 +43,17 @@
 
 
 	
-    <target name="jar" description="Create a jar to run the echo argument">
-        <jar destfile="build/Echo.jar" basedir="build/classes">
-            <manifest>
-                <attribute name="Main-Class" value="EchoArguments"/>
-            </manifest>
-        </jar>
-    </target>   
+	<target name="jar" description="Create a jar to run the echo argument">
+		<jar destfile="build/Echo.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="EchoArguments"/>
+			</manifest>
+		</jar>
+	</target>	
 
 
 
-    <target name="build" description="Compile all source and create a runnable jar" depends="compile, jar"/>
+	<target name="build" description="Compile all source and create a runnable jar" depends="compile, jar"/>
 
 
 
@@ -61,6 +61,6 @@
 		<delete dir="build"/>
 	</target>
 
-   
+
 
 </project>
