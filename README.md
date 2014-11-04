@@ -4,7 +4,7 @@ Small project to show the difference in behaviour when passing wildcards to Ant'
 It consists of two tests, passing a string with a wildcard and using pathconvert with a fileset.
 Sample outputs from running on Windows and Mac are provided in the `reports` directory.
 
-For an explanation of the difference in behaviour please see [this post](http://spudmux.com/ant/wildcard/java/2014/10/24/Wildcards-with-Ant's-Java-Task.html).
+For an explanation of the difference in behaviour please see [this post](http://spudmux.com/2014/10/24/Wildcards-with-Ant's-Java-Task.html).
 
 ## Running the Tests
 
